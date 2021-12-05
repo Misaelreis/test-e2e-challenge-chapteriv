@@ -1,0 +1,40 @@
+/// <reference types="cypress"/>
+
+var Chance = require("chance")
+var chance = new Chance()
+
+describe("Cadastro",()=>{
+    it("Quando eu informar os dados e finalizar, então o cadastro é realizado", ()=>{
+        cy.visit("/")
+        cy.get("input#email_create").type(chance.email())
+        cy.get("#SubmitCreate").click()
+        cy.get("select#id_state").select("Arizona")
+        cy.get("input#id_gender1").check()
+        cy.get("input#customer_firstname").type(chance.first())
+        cy.get("input#customer_lastname").type(chance.last())
+        cy.get("input#email").should('be.visible')
+        cy.get("input#passwd").type("Aluno@21")
+        cy.get("select#days").select("28", {force: true})
+        cy.get("select#months").select("April", {force: true})
+        cy.get("select#years").select("1998", {force: true})
+        cy.get("input#newsletter").check()
+        cy.get("input#optin").check()
+        cy.get("input#firstname").type(chance.first())
+        cy.get("input#lastname").type(chance.last())
+        cy.get("input#company").type(chance.company())
+        cy.get("input#address1").type(chance.address())
+        cy.get("input#address2").type(chance.address())
+        cy.get("input#city").type(chance.city())
+        cy.get("input#postcode").type("12344")
+        cy.get("select#id_country").select("United States", {force: true})
+        cy.get("#other").type(chance.animal())
+        cy.get("input#phone").type(chance.phone())
+        cy.get("input#phone_mobile").type(chance.phone())
+        cy.get("input#alias").type("12312")
+        cy.contains("Register").click()
+        cy.get("select#id_state").select("Arizona")
+        cy.get("input#passwd").type("Aluno@21")
+        cy.contains("Register").click()
+        cy.url().should("contain","my-account")
+    });
+});
