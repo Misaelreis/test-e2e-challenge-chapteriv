@@ -1,5 +1,5 @@
 # test-e2e-challenge-chapteriv ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Misaelreis/test-e2e-challenge-chapteriv/Testes)
-
+[Relatório de excecução](https://misaelreis.github.io/test-e2e-challenge-chapteriv/)
 ## __Requisitos__
 1. [Node](https://nodejs.org/pt-br/)
 2. Chrome
